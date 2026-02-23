@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choyejin's Portfolio</title>
+    <link rel="stylesheet" href="yejin.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="secondpage.css">
+</head>
+
+<body>
+
+        <nav class="flex">
+          <a href="yejin.html" class="home-btn">HOME</a>
+    <div class="menu-trigger" id="menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-container" id="nav-container">
+        <ul class="tabs">
+            <li class="tab active" data-target="momu">MoMU</li>
+            <li class="tab" data-target="theham">더함</li>
+            <li class="tab" data-target="mba1">MBA1</li>
+            <li class="tab" data-target="socar">SOCAR 슈퍼플랜</li>
+            <li class="tab" data-target="sol">신한은행 SuperSOL</li>
+        </ul>
+        <ul class="line tabs">
+            <li class="tab" data-target="mnco">MNCO</li>
+            <li class="tab" data-target="mba1-admin">MBA1 Admin</li>
+            <li class="tab" data-target="eggverse">EGGVERSE</li>
+        </ul>
+        <ul>
+           <li class="tab" data-target="content"> CONTENT DESIGN & 3D</li>
+        </ul>
+    </div>
+</nav>
+
+<div class="image-wrap">
+  <div class="panel active" id="momu">
+    <img src="sorce/momu-detail.png">
+  </div>
+
+      <div class="panel" id="theham">
+    <img src="sorce/theham-detail.png">
+  </div>
+
+      <div class="panel" id="mba1">
+    <img src="sorce/mba1-detail.png">
+  </div>
+
+    <div class="panel" id="socar">
+    <img src="sorce/socar-detail.png">
+  </div>
+
+    <div class="panel" id="sol">
+    <img src="sorce/sol-detail.png">
+  </div>
+
+      <div class="panel" id="mnco">
+    <img src="sorce/mnco-detail.png">
+  </div>
+
+      <div class="panel" id="mba1-admin">
+    <img src="sorce/mba1 admin-detail.png">
+  </div>
+
+      <div class="panel" id="eggverse">
+    <img src="sorce/eggverse-detail.png">
+  </div>
+
+      <div class="panel" id="content">
+            <div class="white content-wrap">
+
+            <div class="content-grid">
+                <div class="content-item"> <img src="/sorce/graphic/1창립기념_NFT 2 (0-00-00-00) 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/트위터좋댓리이벤트 썸네일 1.png"></div>
+                <div class="content-item"><img src="/sorce/graphic/1창립기념_NFT 2 (0-00-00-00) 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/디스코드이벤트_썸네일 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/카톡채널이벤트 썸네일 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/인스타그램 광고_1번이미지_최종 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/럭키박스_인스타_썸네일 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/챌린지포스터 시안2.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/enter-long.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/에어드랍 이벤트_스토리 리마인드2 1.png"></div>
+                <div class="content-item"> <img src="/sorce/graphic/Rectangle 4.png"></div>
+                <div class="content-item"><img src="/sorce/graphic/블로그이미지1 1.png"></div>
+            </div>
+            <div class="content-flex">
+                <div class="content-item"><img src="/sorce/graphic/Frame 48098010.png"></div>
+                <div class="content-item"><img src="/sorce/graphic/Frame 48098375.png"></div>
+            </div>
+
+        </div>
+  </div>
+
+  </div>
+</body>
+
+
+
+
+
+
+
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const panels = document.querySelectorAll(".panel");
+const menuTrigger = document.getElementById("menu-trigger");
+const navContainer = document.getElementById("nav-container");
+
+// 1. 탭 클릭 시 콘텐츠 전환 및 모바일 메뉴 자동 닫기
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    // 활성화 상태 초기화
+    tabs.forEach(t => t.classList.remove("active"));
+    panels.forEach(p => p.classList.remove("active"));
+
+    // 클릭한 탭과 패널 활성화
+    tab.classList.add("active");
+    const target = document.getElementById(tab.dataset.target);
+    if (target) {
+      target.classList.add("active");
+    }
+
+    // 모바일 버전일 때: 메뉴 열려있으면 탭 클릭 시 자동으로 닫아줌
+    if (window.innerWidth <= 768) {
+      menuTrigger.classList.remove("active");
+      navContainer.classList.remove("open");
+    }
+  });
+});
+
+// 2. 모바일 햄버거 메뉴 토글 로직
+if (menuTrigger && navContainer) {
+  menuTrigger.addEventListener("click", () => {
+    menuTrigger.classList.toggle("active");
+    navContainer.classList.toggle("open");
+  });
+}
+
+window.addEventListener("load", () => {
+    // 주소창에서 # 뒤에 오는 글자(ID)를 가져옴
+    const hash = window.location.hash.substring(1); 
+    
+    if (hash) {
+        // 해당 ID를 data-target으로 가진 탭을 찾음
+        const targetTab = document.querySelector(`.tab[data-target="${hash}"]`);
+        
+        if (targetTab) {
+            targetTab.click(); // 강제로 클릭 이벤트 발생!
+            
+            // 페이지 상단으로 스크롤 고정 (필요 시)
+            window.scrollTo(0, 0);
+        }
+    }
+});
+</script>
+
+</html>

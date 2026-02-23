@@ -1,0 +1,216 @@
+.nav-container {
+    display:flex;
+    width:100%;
+    justify-content: center;
+    color:white;
+}
+
+.flex {
+display: flex;
+    padding: 1.5vw 5vw;
+    width: 100%;
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 1px solid #363636;
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    background-color: #000000;
+  
+}
+body {
+  position:relative;
+  background-color:white !important;
+}
+
+.flex ul{
+    display:flex;
+    gap: 2vw;
+}
+
+
+.line::after, .line::before {
+    content: "";
+    background: #ccc;
+    flex:1;
+    height: 100%;
+    width:1px;
+}
+
+img {
+    width:100%;
+}
+
+.tab {
+  cursor: pointer;
+}
+
+.tab:hover {
+  color:#2CFF98;
+}
+
+.tab.active {
+  font-weight: bold;
+  color:#2CFF98;
+}
+
+.image-wrap {
+  position: relative;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease;
+}
+
+.panel.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+#content {
+  padding: 0vw 10vw;
+}
+
+
+/* --- [1300px] 작은 노트북 구간 --- */
+@media (max-width: 1300px) {
+    .flex ul {
+        gap: 1.5vw;
+        font-size: 1.2vw;
+    }
+}
+
+/* --- [768px] 모바일 구간 --- */
+@media (max-width: 768px) {
+    .flex {
+        padding: 4vw 0;
+        gap: 2vw;
+    }
+
+    .flex ul {
+        flex-wrap: wrap; /* 공간 부족하면 다음 줄로 */
+        justify-content: center;
+        gap: 4vw;
+        padding: 0 5vw;
+    }
+
+    /* 모바일에서는 구분선을 숨기거나 디자인 변경 */
+    .line::before {
+        display: none; 
+    }
+
+    .tab {
+        font-size: 3.5vw; /* 모바일에서 터치하기 적당한 크기 */
+        padding: 1vw 0;
+    }
+    
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr); /* 모바일은 2열 그리드로 */
+    }
+}
+
+/* --- 데스크탑 (기본) --- */
+.menu-trigger {
+    display: none; /* 데스크탑에선 숨김 */
+}
+
+/* --- 모바일 (768px 이하) --- */
+@media (max-width: 768px) {
+    .flex {
+        padding: 20px;
+        background-color: #000000;
+    }
+
+    /* 햄버거 아이콘 모양 */
+    .menu-trigger {
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-trigger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #2CFF98;
+        position: absolute;
+        transition: 0.3s;
+    }
+
+    .menu-trigger span:nth-child(1) { top: 0; }
+    .menu-trigger span:nth-child(2) { top: 9px; }
+    .menu-trigger span:nth-child(3) { top: 18px; }
+
+    /* 햄버거 클릭 시 'X' 모양으로 변신 */
+    .menu-trigger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-trigger.active span:nth-child(2) { opacity: 0; }
+    .menu-trigger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* 모바일 메뉴 컨테이너 (기본은 숨김) */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 오른쪽 바깥에 대기 */
+        width: 70%;   /* 화면의 70% 너비 */
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: 0.4s;
+        z-index: 1000;
+    }
+
+    .nav-container.open {
+        right: 0; /* 클릭 시 화면 안으로 슥 들어옴 */
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .tab {
+        font-size: 18px;
+    }
+
+    .line::before { display: none; } /* 모바일 세로선 제거 */
+}
+
+
+.home-btn {
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    color: #2CFF98; /* 마우스 올리면 포인트 컬러로 변경 */
+}
+
+@media (max-width: 768px) {
+
+    .home-btn {
+        font-size: 16px; /* 모바일에서 가독성 좋은 크기 */
+    }
+
+    /* 모바일에서 메뉴 열렸을 때 홈 버튼이 가려지지 않게 처리 */
+    .nav-container {
+        z-index: 1000;
+    }
+}

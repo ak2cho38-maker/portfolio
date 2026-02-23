@@ -1,0 +1,316 @@
+html, body {
+    overflow-x: clip;
+}
+body {
+    margin:0;
+    padding:0;
+    background-color:black;
+    position: relative;
+}
+
+* {
+    box-sizing: border-box;
+}
+.white {
+    color:white;
+}
+
+p {
+    margin:0;
+}
+.container {
+    width:100%;
+    padding:0 10vw;
+}
+.video-bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    object-fit: cover;
+}
+.video-wrap {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+.video-in {
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    position:sticky;
+    top:0;
+    filter:contrast(140%) brightness(40%);
+}
+
+.big-text {
+    font-size: 160px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 20px;
+    margin:0;
+    padding:0;
+    margin-bottom: 1.25vw;
+
+}
+.container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+}
+
+.width100{
+    display:inline-block;
+    width:60px;
+}
+
+
+.section-1 > span {
+    font-weight:bold;
+    color:#2CFF98;
+    font-size:20px;
+    margin-bottom:0.5vw;
+    display:block;
+}
+
+.section-1-image {
+    width: 7vw;
+    height: 7vw;
+    border-radius: 0.625rem;
+    object-fit: cover;
+}
+
+
+.section-2 {
+    display:flex;
+    
+}
+
+* ul {
+    list-style-type: none;
+    margin:0;
+}
+
+.section-2 ul > li, .section-3 ul > li {
+    margin-bottom: 0.5vw;
+    font-size: 16px;
+}
+
+.section-2 ul > span, .section-3 > span {
+    font-weight:bold;
+    color:#2CFF98;
+    font-size:20px;
+    margin-bottom:0.5vw;
+    display:block;
+}
+
+.section-3 {
+    margin-top:3vw;
+}
+
+.section-3 ul {
+    display:flex;
+    gap:2vw;
+    padding:0;
+}
+
+.section-3 ul img {
+    width:4vw;
+}
+
+.section-3 li {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.5vw;
+    font-size:16px;
+}
+
+.group-flex {
+    display:flex;
+    gap:1vw;
+    align-items: flex-start;
+}
+
+/* 앱디자인 섹션 */
+
+.section-app {
+    margin-top:20vw;
+    position:relative;
+    margin-bottom:50vh;
+}
+
+.sticky-wrap {
+    display:flex;
+    align-items:flex-start;
+}
+
+.sticky-wrap > div {
+    font-size: 70px;
+    font-weight: bold;
+    color:#2CFF98;
+    width:50%;
+    position:sticky;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.section-app ul li {
+    margin-bottom:35vh;
+}
+
+.section-app ul li:last-of-type {
+    margin-bottom:0vh;
+}
+
+.section-app ul li img {
+    width: 22vw;
+    border-radius: 0.625rem;
+}
+
+.section-app ul li a {
+    display:flex;
+    gap:2vw;
+    align-items: center;
+}
+
+.section-app ul li a div span {
+    font-size:30px;
+    font-weight:bold;
+}
+
+.section-app ul li a div {
+    line-height: 1.5vw;
+    font-size:16px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* 웹디자인 섹션 */
+
+.section-web > div > div {
+    font-size: 70px;
+    font-weight: bold;
+    color:#2CFF98;
+    padding-bottom:1vw;
+}
+
+.web-item {
+    width:30vw;
+    padding:1vw;
+    border-radius: 0.625rem;
+    border:1px solid white;
+}
+
+.web-item a img {
+    width: 100%;
+    border-radius: 0.625rem;
+}
+
+.web-item a {
+    display:flex;
+    flex-direction: column;
+    gap:1vw;
+    font-size:16px;
+    font-weight: 400;
+}
+
+.web-item a span {
+    font-size:40px;
+    font-weight:bold;
+    color:#2CFF98;
+}
+
+.web-wrap {
+    display:flex;
+    gap:10vw;
+    width:max-content;
+    height:100%;
+    will-change: transform;
+}
+
+.section-web {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.web-sub-text {
+    font-size:16px;
+}
+
+.horizontal-section {
+    height: 200vh; /* 이 높이가 가로 이동 거리 역할 */
+    position: relative;
+  }
+  
+  .horizontal-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: visible;
+    padding-top:1vw;
+  }
+  
+  .horizontal-track {
+   /*height: calc(100vh - 15vw); /* 상단 타이틀 공간 빼기 */
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* 콘텐츠 디자인 */
+
+  .content-title {
+        font-size: 70px;
+    font-weight: bold;
+    color:#2CFF98;
+    padding-bottom: 1vw;
+  }
+
+  .content-wrap {
+    width:100%;
+    margin-bottom:3vw;
+  }
+
+  .content-grid {
+    width:100%;
+    display:grid;
+     grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .content-flex {
+    width:100%;
+  }
+  
+  .content-item {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-item img {
+  width: 100%;
+  height: auto;
+    border-radius: 8px;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* hover */
+.content-item:hover img {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
