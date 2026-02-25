@@ -65,7 +65,7 @@
   </div>
 
       <div class="panel" id="mba1-admin">
-    <img src="sorce/mba1 admin-detail.png">
+    <img src="sorce/mba1admin-detail.png">
   </div>
 
       <div class="panel" id="eggverse">
@@ -107,58 +107,48 @@
 
 
 
+
 <script>
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
 const menuTrigger = document.getElementById("menu-trigger");
 const navContainer = document.getElementById("nav-container");
 
-// 1. 탭 클릭 시 콘텐츠 전환 및 모바일 메뉴 자동 닫기
+// 탭 클릭 이벤트 (콘텐츠 전환 + 스크롤 상단 이동)
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    // 활성화 상태 초기화
+    // 1. 모든 탭과 패널에서 active 클래스 제거
     tabs.forEach(t => t.classList.remove("active"));
     panels.forEach(p => p.classList.remove("active"));
 
-    // 클릭한 탭과 패널 활성화
+    // 2. 클릭한 탭과 연결된 패널 활성화
     tab.classList.add("active");
     const target = document.getElementById(tab.dataset.target);
     if (target) {
       target.classList.add("active");
     }
 
-    // 모바일 버전일 때: 메뉴 열려있으면 탭 클릭 시 자동으로 닫아줌
-    if (window.innerWidth <= 768) {
+    // 3. [핵심] 탭 변경 시 화면 맨 위로 스크롤 이동
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // 부드럽게 올리고 싶으면 smooth, 즉시는 auto
+    });
+
+    // 4. 모바일 메뉴 자동 닫기
+    if (window.innerWidth <= 768 && menuTrigger && navContainer) {
       menuTrigger.classList.remove("active");
       navContainer.classList.remove("open");
     }
   });
 });
 
-// 2. 모바일 햄버거 메뉴 토글 로직
+// 햄버거 메뉴 토글
 if (menuTrigger && navContainer) {
   menuTrigger.addEventListener("click", () => {
     menuTrigger.classList.toggle("active");
     navContainer.classList.toggle("open");
   });
 }
-
-window.addEventListener("load", () => {
-    // 주소창에서 # 뒤에 오는 글자(ID)를 가져옴
-    const hash = window.location.hash.substring(1); 
-    
-    if (hash) {
-        // 해당 ID를 data-target으로 가진 탭을 찾음
-        const targetTab = document.querySelector(`.tab[data-target="${hash}"]`);
-        
-        if (targetTab) {
-            targetTab.click(); // 강제로 클릭 이벤트 발생!
-            
-            // 페이지 상단으로 스크롤 고정 (필요 시)
-            window.scrollTo(0, 0);
-        }
-    }
-});
 </script>
 
 </html>

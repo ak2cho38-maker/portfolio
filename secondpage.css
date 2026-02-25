@@ -64,13 +64,13 @@ img {
   left: 0;
   width: 100%;
   opacity: 0;
-  visibility: hidden;
+  display:none;
   transition: opacity .4s ease;
 }
 
 .panel.active {
   opacity: 1;
-  visibility: visible;
+  display:block;
   position: relative;
 }
 
